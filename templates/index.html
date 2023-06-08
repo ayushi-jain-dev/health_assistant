@@ -130,7 +130,20 @@
 		const question = $("#chat-input").val();
 		const condition = $("#condition-dropdown").val();
 		const severity = $("#severity-dropdown").val();
-		askChatGPT(question, condition, severity);
+		if (condition && severity && question) {
+			askChatGPT(question, condition, severity);
+		}
+	});
+
+	$(document).ready(function() {
+		$(document).keypress(function(event) {
+      if (event.keyCode === 13) { // Check if the pressed key is Enter (key code 13)
+        event.preventDefault(); // Prevent the default behavior of the Enter key
+
+        // Perform your desired action, such as clicking a button
+        $('#gpt-button').click();
+      }
+    });
 	});
 </script>
 
