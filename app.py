@@ -10,9 +10,9 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
-        prompt = request.form['prompt']
-        res = {}
-        res['answer'] = aiapi.generateChatResponse(prompt)
+        question, condition, severity = request.form.values()
+        res = dict()
+        res['answer'] = aiapi.generateChatResponse(question, condition, severity)
         return jsonify(res), 200
     return render_template('index.html')
 
