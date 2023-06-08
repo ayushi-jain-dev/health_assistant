@@ -23,10 +23,11 @@
 </header>
 
 <main class="flex-shrink-0 pt-5 position-relative" style="height: 100vh;">
-  <div class="container">
+  <div class="container" >
     <h1 class="mt-5">Health GPT</h1>
-    <div class="list-group w-auto" id="list-group"></div>
-
+    <div class="overflow-auto" style="height: 70vh;">
+      <div class="list-group w-auto" id="list-group"></div>
+    </div>
     <div class="footer position-fixed bottom-0" style="width: 80%;">
       <div class="d-flex gap-2">
         <select class="form-select" id="condition-dropdown">
@@ -60,6 +61,7 @@
       </div>
     </div>
   </div>
+
 </main>
 
 
@@ -73,6 +75,7 @@
 		$("#chat-input").val('');
 		$("#condition-dropdown").val('');
 		$("#severity-dropdown").val('');
+		$("#gpt-button").prop("disabled", true);
 	}
 
 	function askChatGPT(question, condition, severity) {
@@ -115,11 +118,10 @@
 		});
 	}
 
-	$("#chat-input, #condition-dropdown, #severity-dropdown").on("change", function () {
-		const question = $("#chat-input").val();
+	$("#condition-dropdown, #severity-dropdown").on("change", function () {
 		const condition = $("#condition-dropdown").val();
 		const severity = $("#severity-dropdown").val();
-		if (condition && severity && question) {
+		if (condition && severity) {
 			$("#gpt-button").prop("disabled", false);
 		} else {
 			$("#gpt-button").prop("disabled", true);
