@@ -1,0 +1,13 @@
+.env
+/bin/
+/include/
+/lib/
+/share/
+/pyvenv.cfg
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/JetClient/state.xml
+/.idea/.gitignore
+/.idea/chatbot.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
