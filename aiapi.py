@@ -6,9 +6,6 @@ openai.api_key = API_KEY
 
 
 def generateChatResponse(_question, condition, severity):
-    print(
-        f"I am suffering with {severity} {condition} condition. Please answer my question on the given condition and severity. {_question}")
-
     messages = []
     messages.append({"role": "assistant", "content": "You are a helpful health assistant"})
 
@@ -19,8 +16,6 @@ def generateChatResponse(_question, condition, severity):
                      f"condition and severity. {_question}"
     messages.append(question)
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
-    print(response)
-
     try:
         answer = response.choices[0].message
     except:
