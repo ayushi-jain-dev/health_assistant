@@ -28,7 +28,7 @@ openai-whisper==20230306
 python-dotenv==0.21.1
 regex==2023.6.3
 requests==2.31.0
-sympy==1.12
+sympy==1.10.1
 tiktoken==0.3.1
 tqdm==4.65.0
 typing_extensions==4.6.3
